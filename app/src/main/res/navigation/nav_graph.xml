@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/breedListFragment"
+        android:name="com.example.dogs.breeds.ui.breedlist.BreedListFragment"
+        android:label="Breeds"
+        tools:layout="@layout/breed_list_fragment">
+        <action
+            android:id="@+id/action_breedListFragment_to_breedPhotosFragment"
+            app:destination="@id/breedPhotosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/breedPhotosFragment"
+        android:name="com.example.dogs.breeds.ui.breedphotos.BreedPhotosFragment"
+        android:label="BreedPhotosFragment" >
+        <argument
+            android:name="breed"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_breedPhotosFragment_to_breedPhotoDetailFragment"
+            app:destination="@id/breedPhotoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/breedPhotoDetailFragment"
+        android:name="com.example.dogs.breeds.ui.breedphotodetail.BreedPhotoDetailFragment"
+        android:label="BreedPhotoDetailFragment" >
+        <argument
+            android:name="photoLink"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.dogs.breeds.ui.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_breedListFragment"
+            app:destination="@id/breedListFragment" />
+    </fragment>
+
+</navigation>
